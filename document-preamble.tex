@@ -1,0 +1,105 @@
+\documentclass[xcolor=dvipsnames]{beamer}
+%\documentclass[xcolor=dvipsnames,handout]{beamer} % Handout mode
+
+\usepackage[utf8]{inputenc} 
+\mode<presentation>
+{
+	\usetheme{Pittsburgh}
+	\usecolortheme{crane}
+}
+
+
+\usepackage[ngerman]{babel}
+\usepackage[T1]{fontenc}  
+
+\usepackage[ngerman]{babel} 
+\usepackage{tikz-qtree}
+\usepackage{tikz}
+\usepackage{color}
+\usepackage{graphicx}
+\usepackage{amsmath,marvosym,amssymb} % Mathesachen
+\usepackage[T1]{fontenc} % Ligaturen, richtige Umlaute im PDF
+\usepackage{pifont}
+
+
+\usepackage{listings}
+
+\lstset{%
+	% Basic design
+	basicstyle={\small\ttfamily}, 
+	breaklines=true,
+	escapeinside={\%*}{*)},
+	% Support for German umlauts
+	literate=%
+	{Ö}{{\"O}}1
+	{Ä}{{\"A}}1
+	{Ü}{{\"U}}1
+	{ß}{{\ss}}1
+	{ü}{{\"u}}1
+	{ä}{{\"a}}1
+	{ö}{{\"o}}1
+	{~}{{\textasciitilde}}1
+}
+
+\newenvironment<>{redblock}[1]{%
+	\setbeamercolor{block title}{fg=white,bg=red!75!black}%
+	\begin{block}#2{#1}}
+	{\end{block}
+}
+
+\newenvironment<>{whiteblock}[1]{%
+	\setbeamercolor{block title}{fg=black,bg=white!75!black}%
+	\begin{block}#2{#1}}
+	{\end{block}
+}
+
+\newenvironment<>{greenblock}[1]{%
+	\setbeamercolor{block title}{fg=black,bg=green!75!black}%
+	\begin{block}#2{#1}}
+	{\end{block}
+}
+
+\newenvironment<>{blackblock}[1]{%
+	\setbeamercolor{block title}{fg=white,bg=black!75!black}%
+	\begin{block}#2{#1}}
+	{\end{block}
+}
+
+\newenvironment<>{blueblock}[1]{%
+	\setbeamercolor{block title}{fg=white,bg=blue!75!black}%
+	\begin{block}#2{#1}}
+	{\end{block}
+}
+
+
+\newcommand{\bgpicture}[2]{
+	\usebackgroundtemplate{
+		\tikz[overlay,remember picture] \node[opacity=#1, at=(current page.center)] {
+			%		\hspace{-1.2cm}
+			\includegraphics[height=\paperheight]{#2}};
+	}
+}
+
+\newenvironment{pictureframe}[2][]{%
+	\usebackgroundtemplate{%
+		\includegraphics[height=\paperheight,width=\paperwidth]{#1}
+	}
+	\begin{frame}\frametitle{#2}
+	}
+	{
+	\end{frame}
+	\usebackgroundtemplate{}
+}
+
+\newenvironment{pictureframebreaks}[2][]{%
+	\usebackgroundtemplate{
+		\includegraphics[height=\paperheight,width=\paperwidth]{#1}
+	}
+	\begin{frame}[allowframebreaks]\frametitle{#2}
+	}
+	{
+	\end{frame}
+	\usebackgroundtemplate{}
+}
+
+\setbeamerfont{frametitle}{size=\large, series=\bf}
