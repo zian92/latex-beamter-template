@@ -1,0 +1,162 @@
+\usepackage[utf8]{inputenc}
+\usepackage[german]{babel}
+\usepackage{fontenc}
+
+\usepackage{setspace}  %Paket um zeilenabstand zu änern
+\usepackage{longtable} %mehrseiteige Tabellen
+\usepackage{hhline}    %dopplete quer-Linie in Longtable
+\usepackage{multirow}
+\usepackage{wrapfig}
+\usepackage{lipsum}
+\usepackage{listings}
+\usepackage{enumitem}
+\usepackage{pifont}
+\usepackage{amsmath}
+\usepackage{mathtools}
+\usepackage[hidelinks]{hyperref}
+
+
+% Theorem-Umgebungen
+\usepackage{ntheorem}
+
+% diagram 
+\usepackage{tikz}
+\usetikzlibrary{arrows,shadows}
+\usepackage{pgf-umlsd}
+
+\usepackage{graphicx}
+\graphicspath{{grafiken/}}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{tikzscale}
+
+\usepackage{color}
+
+\lstset{%
+	% Support for German umlauts
+	literate=%
+	{Ö}{{\"O}}1
+	{Ä}{{\"A}}1
+	{Ü}{{\"U}}1
+	{ß}{{\ss}}1
+	{ü}{{\"u}}1
+	{ä}{{\"a}}1
+	{ö}{{\"o}}1
+	{~}{{\textasciitilde}}1
+}
+
+
+\usepackage{beramono}
+\newcommand{\inlinecode}{\texttt}
+
+\usepackage{floatrow}
+\floatsetup[figure]{capposition=bottom}
+\usepackage[tableposition=top]{caption}
+
+
+
+% Verweise
+\newcommand*{\chref}[1]{Abschnitt \ref{#1} \glqq\nameref{#1}\grqq}
+\newcommand*{\absref}[1]{Abbildung \ref{#1} \glqq\nameref{#1}\grqq}
+\newcommand*{\tblref}[1]{\ref{#1}}
+\newcommand*{\bspref}[1]{\ref{#1}}
+\newcommand*{\figref}[1]{\ref{#1}}
+\newcommand*{\namedef}[2]{#1 ({#2})}
+
+% Zeichen
+\newcommand{\checky}{\ding{51}} % häkchen
+\newcommand{\checkn}{\ding{55}} % X
+
+%Hurenkinder, Schusterjungen
+% Keine einzelnen Zeilen beim Anfang eines Abschnitts (Schusterjungen)
+\clubpenalty = 10000
+% Keine einzelnen Zeilen am Ende eines Abschnitts (Hurenkinder)
+\widowpenalty = 10000 \displaywidowpenalty = 10000
+
+% itemize bulletpoints
+\renewcommand\labelitemi{-}
+\renewcommand\labelitemii{-}
+\renewcommand\labelitemiii{-}
+
+% Theorem-Optionen %
+\theoremstyle{plain}
+\theoremseparator{:}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{satz}[theorem]{Satz}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{korollar}[theorem]{Korollar}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{beweis}[theorem]{Beweis}
+\newtheorem{notation}[theorem]{Notation}
+\newtheorem{konvention}[theorem]{Konvention}
+\newtheorem{bezeichnung}[theorem]{Bezeichnung}
+\newtheorem{problem}[theorem]{Problem}
+\newtheorem{bemerkung}[theorem]{Bemerkung}
+\newtheorem{beobachtung}[theorem]{Beobachtung}
+\newtheorem{beispiel}[theorem]{Beispiel}
+\newtheorem{frage}[theorem]{Frage}
+
+% Ohne Numerierung
+\theoremstyle{nonumberplain}
+\renewtheorem{theorem*}{Theorem}
+\renewtheorem{satz*}{Satz}
+\renewtheorem{lemma*}{Lemma}
+\renewtheorem{korollar*}{Korollar}
+\renewtheorem{proposition*}{Proposition}
+\renewtheorem{definition*}{Definition}
+\renewtheorem{bemerkung*}{Bemerkung}
+\renewtheorem{beispiel*}{Beispiel}
+\renewtheorem{problem*}{Problem}
+\renewtheorem{frage*}{Frage}
+
+
+% Zeilenabstand einstellen %
+\renewcommand{\baselinestretch}{1.25}
+% Floating-Umgebungen anpassen %
+\renewcommand{\topfraction}{0.9}
+\renewcommand{\bottomfraction}{0.8}
+% Abkuerzungen richtig formatieren %
+\usepackage{xspace}
+\newcommand{\vgl}{vgl.\@\xspace} 
+\newcommand{\zB}{z.\nolinebreak[4]\hspace{0.125em}\nolinebreak[4]B.\@\xspace}
+\newcommand{\bzw}{bzw.\@\xspace}
+\newcommand{\dahe}{d.\nolinebreak[4]\hspace{0.125em}h.\nolinebreak[4]\@\xspace}
+\newcommand{\etc}{etc.\@\xspace}
+\newcommand{\evtl}{evtl.\@\xspace}
+\newcommand{\ggf}{ggf.\@\xspace}
+\newcommand{\bzgl}{bzgl.\@\xspace}
+\newcommand{\so}{s.\nolinebreak[4]\hspace{0.125em}\nolinebreak[4]o.\@\xspace}
+\newcommand{\iA}{i.\nolinebreak[4]\hspace{0.125em}\nolinebreak[4]A.\@\xspace}
+\newcommand{\sa}{s.\nolinebreak[4]\hspace{0.125em}\nolinebreak[4]a.\@\xspace}
+\newcommand{\su}{s.\nolinebreak[4]\hspace{0.125em}\nolinebreak[4]u.\@\xspace}
+\newcommand{\ua}{u.\nolinebreak[4]\hspace{0.125em}\nolinebreak[4]a.\@\xspace}
+\newcommand{\og}{o.\nolinebreak[4]\hspace{0.125em}\nolinebreak[4]g.\@\xspace}
+\newcommand{\oBdA}{o.\nolinebreak[4]\hspace{0.125em}\nolinebreak[4]B.\nolinebreak[4]\hspace{0.125em}d.\nolinebreak[4]\hspace{0.125em}A.\@\xspace}
+\newcommand{\OBdA}{O.\nolinebreak[4]\hspace{0.125em}\nolinebreak[4]B.\nolinebreak[4]\hspace{0.125em}d.\nolinebreak[4]\hspace{0.125em}A.\@\xspace}
+
+% Leere Seite ohne Seitennummer, naechste Seite rechts
+\newcommand{\blankpage}{
+	\clearpage{\pagestyle{empty}\cleardoublepage}
+}
+
+% itemize/enumerate mit wenig Abstand zwischen den Items
+%
+\newenvironment{itemizesmall}
+{
+	\begin{itemize}[topsep=0pt,itemsep=-1ex,partopsep=1ex,parsep=1ex]
+	}{
+\end{itemize}
+}
+
+\newenvironment{enumeratesmall}
+{
+	\begin{enumerate}[topsep=0pt,itemsep=-1ex,partopsep=1ex,parsep=1ex]
+	}{
+\end{enumerate}
+}
+
+
+
+% Definitionen für Gleichungen
+\newcommand{\defeq}{\stackrel{\mathclap{\normalfont\mbox{def}}}{=}}
