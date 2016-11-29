@@ -12,7 +12,6 @@
 \usepackage[ngerman]{babel}
 \usepackage[T1]{fontenc}  
 
-\usepackage[ngerman]{babel} 
 \usepackage{tikz-qtree}
 \usepackage{tikz}
 \usepackage{color}
@@ -39,6 +38,16 @@
 	{ä}{{\"a}}1
 	{ö}{{\"o}}1
 	{~}{{\textasciitilde}}1
+}
+
+
+% Block that not breaks over a page
+\newenvironment<>{solidblock}[1]{%
+	\setbeamercolor{block title}{}%
+	\begin{minipage}{\textwidth}
+	\begin{block}#2{#1}}
+	{\end{block}
+	\end{minipage}
 }
 
 \newenvironment<>{redblock}[1]{%
