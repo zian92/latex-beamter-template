@@ -21,6 +21,25 @@
 \usepackage{pifont}
 
 
+% format abbrevations german correctly
+\usepackage{xspace}
+\newcommand{\vgl}{vgl.\@\xspace} 
+\newcommand{\zB}{z.\nolinebreak[4]\hspace{0.125em}\nolinebreak[4]B.\@\xspace}
+\newcommand{\bzw}{bzw.\@\xspace}
+\newcommand{\dahe}{d.\nolinebreak[4]\hspace{0.125em}h.\nolinebreak[4]\@\xspace}
+\newcommand{\etc}{etc.\@\xspace}
+\newcommand{\evtl}{evtl.\@\xspace}
+\newcommand{\ggf}{ggf.\@\xspace}
+\newcommand{\bzgl}{bzgl.\@\xspace}
+\newcommand{\so}{s.\nolinebreak[4]\hspace{0.125em}\nolinebreak[4]o.\@\xspace}
+\newcommand{\iA}{i.\nolinebreak[4]\hspace{0.125em}\nolinebreak[4]A.\@\xspace}
+\newcommand{\sa}{s.\nolinebreak[4]\hspace{0.125em}\nolinebreak[4]a.\@\xspace}
+\newcommand{\su}{s.\nolinebreak[4]\hspace{0.125em}\nolinebreak[4]u.\@\xspace}
+\newcommand{\ua}{u.\nolinebreak[4]\hspace{0.125em}\nolinebreak[4]a.\@\xspace}
+\newcommand{\og}{o.\nolinebreak[4]\hspace{0.125em}\nolinebreak[4]g.\@\xspace}
+\newcommand{\oBdA}{o.\nolinebreak[4]\hspace{0.125em}\nolinebreak[4]B.\nolinebreak[4]\hspace{0.125em}d.\nolinebreak[4]\hspace{0.125em}A.\@\xspace}
+\newcommand{\OBdA}{O.\nolinebreak[4]\hspace{0.125em}\nolinebreak[4]B.\nolinebreak[4]\hspace{0.125em}d.\nolinebreak[4]\hspace{0.125em}A.\@\xspace}
+
 \usepackage{listings}
 
 \lstset{%
@@ -41,12 +60,12 @@
 }
 
 
-% Block that not breaks over a page
+% Block that does not breaks over a page
 \newenvironment<>{solidblock}[1]{%
 	\setbeamercolor{block title}{}%
 	\begin{minipage}{\textwidth}
-	\begin{block}#2{#1}}
-	{\end{block}
+		\begin{block}#2{#1}}
+		{\end{block}
 	\end{minipage}
 }
 
@@ -94,28 +113,28 @@
 		\tikz\node[opacity=#1,inner sep=0]{\includegraphics[height=\paperheight,width=\paperwidth]{#2}};
 	}
 	\begin{frame}\frametitle{#3}
-	}
-	{
-	\end{frame}
-	\usebackgroundtemplate{}
+}
+{
+\end{frame}
+\usebackgroundtemplate{}
 }
 
 \newenvironment{pictureframebreaks}[3][1.0]{%
-	\usebackgroundtemplate{
-		\tikz\node[opacity=#1,inner sep=0]{\includegraphics[height=\paperheight,width=\paperwidth]{#2}};
-	}
-	\begin{frame}[allowframebreaks]\frametitle{#3}
-	}
-	{
-	\end{frame}
-	\usebackgroundtemplate{}
+\usebackgroundtemplate{
+	\tikz\node[opacity=#1,inner sep=0]{\includegraphics[height=\paperheight,width=\paperwidth]{#2}};
+}
+\begin{frame}[allowframebreaks]\frametitle{#3}
+}
+{
+\end{frame}
+\usebackgroundtemplate{}
 }
 
 \newenvironment{framebreaks}[1][]{%
-	\begin{frame}[allowframebreaks]\frametitle{#1}
-	}
-	{
-	\end{frame}
+\begin{frame}[allowframebreaks]\frametitle{#1}
+}
+{
+\end{frame}
 }
 
 \setbeamerfont{frametitle}{size=\large, series=\bf}
