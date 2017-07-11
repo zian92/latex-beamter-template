@@ -1,0 +1,84 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{beamer-template}[2017/07/01 Custom Beamer Template]
+
+
+\input{../general_commands}
+
+% Block that does not breaks over a page
+\newenvironment<>{solidblock}[1]{%
+	\setbeamercolor{block title}{}%
+	\begin{minipage}{\textwidth}
+		\begin{block}#2{#1}}
+		{\end{block}
+	\end{minipage}
+}
+
+\newenvironment<>{redblock}[1]{%
+	\setbeamercolor{block title}{fg=white,bg=red!75!black}%
+	\begin{block}#2{#1}}
+	{\end{block}
+}
+
+\newenvironment<>{whiteblock}[1]{%
+	\setbeamercolor{block title}{fg=black,bg=white!75!black}%
+	\begin{block}#2{#1}}
+	{\end{block}
+}
+
+\newenvironment<>{greenblock}[1]{%
+	\setbeamercolor{block title}{fg=black,bg=green!75!black}%
+	\begin{block}#2{#1}}
+	{\end{block}
+}
+
+\newenvironment<>{blackblock}[1]{%
+	\setbeamercolor{block title}{fg=white,bg=black!75!black}%
+	\begin{block}#2{#1}}
+	{\end{block}
+}
+
+\newenvironment<>{blueblock}[1]{%
+	\setbeamercolor{block title}{fg=white,bg=blue!75!black}%
+	\begin{block}#2{#1}}
+	{\end{block}
+}
+
+
+\newcommand{\bgpicture}[2]{
+	\usebackgroundtemplate{
+		\tikz[overlay,remember picture] \node[opacity=#1, at=(current page.center)] {
+			%		\hspace{-1.2cm}
+			\includegraphics[height=\paperheight]{#2}};
+	}
+}
+
+\newenvironment{pictureframe}[3][1.0]{%
+	\usebackgroundtemplate{%
+		\tikz\node[opacity=#1,inner sep=0]{\includegraphics[height=\paperheight,width=\paperwidth]{#2}};
+	}
+	\begin{frame}\frametitle{#3}
+}
+{
+\end{frame}
+\usebackgroundtemplate{}
+}
+
+\newenvironment{pictureframebreaks}[3][1.0]{%
+\usebackgroundtemplate{
+	\tikz\node[opacity=#1,inner sep=0]{\includegraphics[height=\paperheight,width=\paperwidth]{#2}};
+}
+\begin{frame}[allowframebreaks]\frametitle{#3}
+}
+{
+\end{frame}
+\usebackgroundtemplate{}
+}
+
+\newenvironment{framebreaks}[1][]{%
+\begin{frame}[allowframebreaks]\frametitle{#1}
+}
+{
+\end{frame}
+}
+
+\setbeamerfont{frametitle}{size=\large, series=\bf}

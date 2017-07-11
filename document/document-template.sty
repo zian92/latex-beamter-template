@@ -1,0 +1,113 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{document-template}[2017/07/01 Custom Document Template]
+
+
+\input{../general_commands}
+
+\RequirePackage{setspace}  % reset line separation
+\RequirePackage{longtable} % tables on several pages
+\RequirePackage{hhline}    % double hline in longtable
+\RequirePackage{multirow}
+\RequirePackage{enumitem}
+\RequirePackage[hidelinks]{hyperref}
+
+
+% Theorem environment
+\RequirePackage{ntheorem}
+
+\RequirePackage{caption}
+\RequirePackage{subcaption}
+
+
+\RequirePackage{beramono}
+
+\RequirePackage{floatrow}
+\floatsetup[figure]{capposition=bottom}
+\RequirePackage[tableposition=top]{caption}
+
+
+
+% references german
+\newcommand*{\chref}[1]{Abschnitt \ref{#1} \glqq\nameref{#1}\grqq}
+\newcommand*{\absref}[1]{Abbildung \ref{#1} \glqq\nameref{#1}\grqq}
+\newcommand*{\tblref}[1]{\ref{#1}}
+\newcommand*{\bspref}[1]{\ref{#1}}
+\newcommand*{\figref}[1]{\ref{#1}}
+\newcommand*{\namedef}[2]{#1 ({#2})}
+
+% Symbols
+\newcommand{\checky}{\ding{51}} % tick
+\newcommand{\checkn}{\ding{55}} % X
+
+%Hurenkinder, Schusterjungen
+% Keine einzelnen Zeilen beim Anfang eines Abschnitts (Schusterjungen)
+\clubpenalty = 10000
+% Keine einzelnen Zeilen am Ende eines Abschnitts (Hurenkinder)
+\widowpenalty = 10000 \displaywidowpenalty = 10000
+
+% itemize bulletpoints
+\renewcommand\labelitemi{-}
+\renewcommand\labelitemii{-}
+\renewcommand\labelitemiii{-}
+
+% Theorem-Options %
+\theoremstyle{plain}
+\theoremseparator{:}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{satz}[theorem]{Satz}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{korollar}[theorem]{Korollar}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{beweis}[theorem]{Beweis}
+\newtheorem{notation}[theorem]{Notation}
+\newtheorem{konvention}[theorem]{Konvention}
+\newtheorem{bezeichnung}[theorem]{Bezeichnung}
+\newtheorem{problem}[theorem]{Problem}
+\newtheorem{bemerkung}[theorem]{Bemerkung}
+\newtheorem{beobachtung}[theorem]{Beobachtung}
+\newtheorem{beispiel}[theorem]{Beispiel}
+\newtheorem{frage}[theorem]{Frage}
+
+% without numbering
+\theoremstyle{nonumberplain}
+\renewtheorem{theorem*}{Theorem}
+\renewtheorem{satz*}{Satz}
+\renewtheorem{lemma*}{Lemma}
+\renewtheorem{korollar*}{Korollar}
+\renewtheorem{proposition*}{Proposition}
+\renewtheorem{definition*}{Definition}
+\renewtheorem{bemerkung*}{Bemerkung}
+\renewtheorem{beispiel*}{Beispiel}
+\renewtheorem{problem*}{Problem}
+\renewtheorem{frage*}{Frage}
+
+
+% configure linseparation
+\renewcommand{\baselinestretch}{1.25}
+
+% Floating environment 
+\renewcommand{\topfraction}{0.9}
+\renewcommand{\bottomfraction}{0.8}
+
+% empty page without page number, next page right
+\newcommand{\blankpage}{
+	\clearpage{\pagestyle{empty}\cleardoublepage}
+}
+
+% itemize/enumerate with less space between items
+%
+\newenvironment{itemizesmall}
+{
+	\begin{itemize}[topsep=0pt,itemsep=-1ex,partopsep=1ex,parsep=1ex]
+	}{
+\end{itemize}
+}
+
+\newenvironment{enumeratesmall}
+{
+	\begin{enumerate}[topsep=0pt,itemsep=-1ex,partopsep=1ex,parsep=1ex]
+	}{
+\end{enumerate}
+}
+
